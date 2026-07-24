@@ -1,6 +1,6 @@
 import { FastifyInstance } from 'fastify';
 import { z } from 'zod';
-import { saveActivityEvent } from '../processing/service';
+import { eventBus } from '../../shared/eventBus';
 
 const eventIngestionSchema = z.object({
     eventType: z.string().min(2).max(50),
@@ -19,8 +19,11 @@ export async function ingestionRoutes(server: FastifyInstance) {
         }
 
         const { eventType, payload } = parseResult.data;
-        const savedEvent = await saveActivityEvent(eventType, payload);
+        eventBus.emit('activity:received', { eventType, payload });
 
-        return reply.status(201).send(savedEvent);
+        return reply.status(202).send({
+            status: 'Accepted',
+            message: 'Activity event queued for background processing',
+        });
     });
 }

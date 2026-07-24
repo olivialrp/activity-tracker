@@ -2,8 +2,11 @@ import 'dotenv/config';
 import Fastify from 'fastify';
 import { ingestionRoutes } from './modules/ingestion/routes';
 import { analyticsRoutes } from './modules/analytics/routes';
+import { registerProcessingListeners } from './modules/processing/listener';
 
 const server = Fastify({ logger: true });
+
+registerProcessingListeners();
 
 server.get('/health', async () => {
     return { status: 'Online', architecture: 'Modular Monolith' };
