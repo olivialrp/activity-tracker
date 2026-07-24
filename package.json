@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "tsx src/server.ts",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "seed": "tsx src/seed.ts"
   },
   "devDependencies": {
     "@types/node": "^26.1.1",

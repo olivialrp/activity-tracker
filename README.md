@@ -73,9 +73,9 @@ Testing and CI/CD: Vitest and GitHub Actions. In-memory HTTP contract testing ex
 Cloud Hosting: Render. Automated Dockerless edge container deployments linked to main branch CI.
 
 ## Live Demo and API Documentation
+> ⚠️ **Note on Cloud Latency:** This API is deployed on a free edge cluster. If the server has been idle for 15+ minutes, the initial request may take 30–40 seconds to wake up from standby mode. Subsequent requests will execute with sub-second latency.
 The API is fully deployed and connected to a live production cloud database. You can test endpoints interactively directly from your browser without installing Postman.
 https://activity-tracker-cyen.onrender.com/docs
-
 
 
 ### Key Endpoints
