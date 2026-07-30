@@ -91,7 +91,7 @@ The API is fully deployed and connected to a live production cloud database. You
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/olivialrp/activity-tracker.git
+git clone https://github.com/sysbuildstate/activity-tracker.git
 cd activity-tracker
 npm install
 ```
